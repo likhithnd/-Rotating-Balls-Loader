@@ -1,0 +1,127 @@
+body {
+    background-color: black;
+}
+.circle-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin: 100px auto;
+}
+#text{
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-left: 40vw;
+    font-size: larger;
+    font-weight: 700;
+    position: absolute;
+    top: 43vh;
+}
+.balls {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+}
+
+/* Calculate positions using trigonometry */
+/* x = centerX + radius × cos(angle)
+   y = centerY + radius × sin(angle) */
+
+/* ...existing code... */
+#ball1 {
+    left: 50px;
+    top: 8px;
+}
+
+/* 0°   */
+#ball2 {
+    left: 71px;
+    top: 13px;
+}
+
+/* 30°  */
+#ball3 {
+    left: 85px;
+    top: 29px;
+}
+
+/* 60°  */
+#ball4 {
+    left: 92px;
+    top: 50px;
+}
+
+/* 90°  */
+#ball5 {
+    left: 85px;
+    top: 71px;
+}
+
+/* 120° */
+#ball6 {
+    left: 71px;
+    top: 87px;
+}
+
+/* 150° */
+#ball7 {
+    left: 50px;
+    top: 92px;
+}
+
+/* 180° */
+#ball8 {
+    left: 29px;
+    top: 87px;
+}
+
+/* 210° */
+#ball9 {
+    left: 15px;
+    top: 71px;
+}
+
+/* 240° */
+/* ...existing code... */
+
+/* 
+To arrange balls in a perfect circle, you can use trigonometry to calculate their coordinates.
+The trick is to use the formula for a circle:
+
+x = centerX + radius × cos(angle)
+y = centerY + radius × sin(angle)
+In CSS, you can use position: absolute; for each ball and set their left and top properties based on these calculations.
+
+Example for 6 balls in a circle (CSS only):
+How to calculate coordinates:
+
+centerX = 50px, centerY = 50px (center of container)
+radius = 42px (distance from center to ball)
+For each ball, angle = index * (360/number_of_balls) degrees
+Example for ball2 (angle = 60°):
+
+x = 50 + 42 * cos(60°) ≈ 85
+y = 50 + 42 * sin(60°) ≈ 25
+You can use this trick for any number of balls.
+For more balls, just change the angle step: angle = i * (360 / n).
+
+Summary:
+Use trigonometric formulas to calculate each ball’s position around the center, then set their left and top in CSS.
+This will form a perfect circle!
+*/
+
+
+
+/*
+| Ball | Angle (°) | Radian | cos(θ) | sin(θ) | x-coordinate | y-coordinate |
+| ---- | --------- | ------ | ------ | ------ | ------------ | ------------ |
+| 1    | 0°        | 0      | 1      | 0      | cx + r       | cy           |
+| 2    | 60°       | π/3    | 0.5    | 0.866  | cx + r×0.5   | cy + r×0.866 |
+| 3    | 120°      | 2π/3   | -0.5   | 0.866  | cx - r×0.5   | cy + r×0.866 |
+| 4    | 180°      | π      | -1     | 0      | cx - r       | cy           |
+| 5    | 240°      | 4π/3   | -0.5   | -0.866 | cx - r×0.5   | cy - r×0.866 |
+| 6    | 300°      | 5π/3   | 0.5    | -0.866 | cx + r×0.5   | cy - r×0.866 |
+
+ */
